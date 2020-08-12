@@ -1,16 +1,13 @@
 <template>
-  <b-container fluid>
-    <Header />
-    <PostList :posts="loadData" />
-  </b-container>
+  <div>
+    <PostList isAdmin :posts="loadData" />
+  </div>
 </template>
 <script>
-import Header from "@/components/posts/Header";
 import PostList from "@/components/posts/PostList";
 export default {
   layout: "coreLayout",
   components: {
-    Header,
     PostList,
   },
   data() {
