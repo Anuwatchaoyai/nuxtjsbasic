@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-container>
-      <b-row class="py-5">
+      <b-row class="py-2">
         <PostContent
           v-for="post in posts"
           :key="post.id"
