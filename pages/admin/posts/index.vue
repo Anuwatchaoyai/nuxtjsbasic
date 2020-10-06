@@ -16,18 +16,34 @@ export default {
       loadData: [],
     };
   },
-  asyncData(conetext) {
-    return axios
-      .get("https://nuxt-tutorail.firebaseio.com/posts.json")
-      .then((res) => {
-        const data = [];
-        for (const key in res.data) {
-          data.push({ ...res.data[key], id: key });
-        }
-        return {
-          loadData: data,
-        };
-      });
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        constdata = axios
+          .get("https://nuxt-tutorail.firebaseio.com/posts.json")
+          .then((res) => {
+            const postData = [];
+            for (const key in res.data) {
+              data.push({ ...res.data[key], id: key });
+            }
+            return {
+              loadData: postData,
+            };
+          });
+        resolve(data);
+      }, 4000);
+    });
+    // return axios
+    //   .get("https://nuxt-tutorail.firebaseio.com/posts.json")
+    //   .then((res) => {
+    //     const data = [];
+    //     for (const key in res.data) {
+    //       data.push({ ...res.data[key], id: key });
+    //     }
+    //     return {
+    //       loadData: data,
+    //     };
+    //   });
   },
   // methods: {
   //   async postsAll() {
