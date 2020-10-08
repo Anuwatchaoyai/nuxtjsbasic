@@ -42,13 +42,21 @@
 export default {
   data() {
     return {
-      form: {
-        title: "",
-        content: "",
-        image: "",
-        author: "",
-      },
+      form: this.post
+        ? { ...this.post }
+        : {
+            title: "",
+            content: "",
+            image: "",
+            author: "",
+          },
     };
+  },
+  props: {
+    post: {
+      type: Object,
+      required: false,
+    },
   },
   methods: {
     onSubmit(evt) {

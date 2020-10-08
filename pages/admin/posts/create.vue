@@ -12,11 +12,9 @@ export default {
   },
   methods: {
     onSubmitted(postData) {
-      axios
-        .post("https://nuxt-tutorail.firebaseio.com/posts.json", postData)
-        .then((res) => {
-          console.log(res);
-        });
+      this.$store.dispatch("addPost", postData).then(() => {
+        this.$route.push("/admin/posts");
+      });
     },
   },
 };
